@@ -7,17 +7,20 @@ session = HTMLSession()
 
 r = session.get('http://www.allocine.fr/film/fichefilm_gen_cfilm=9393.html')
 
+def distrib_and_date(sessionget):
+
+    scc =sessionget.html.xpath("//script[@type='text/javascript']/text()")
+    scc = ''.join(scc)
+
+    regex = re.findall(r'WbAdsConfig.=.\{.*\}\}',scc)
+    regex = re.findall(r"\{.*\}",regex[0])
+
+    data = json.loads(regex[0])
 
 
-scc =r.html.xpath("//script[@type='text/javascript']/text()")
-scc = ''.join(scc)
+    dico = {"movie_distributors": data.get("targeting").get("movie_distributors"),"production_year":(data.get("targeting")).get("production_year")}
 
-regex = re.findall(r'WbAdsConfig.=.\{.*\}\}',scc)
-regex = re.findall(r"\{.*\}",regex[0])
+    return(dico)
 
-print (regex[0])
-
-
-fi = open('textjs.html','w')
-
-fi.write(regex[0])
+dic = distrib_and_date(r)
+print(dic)
