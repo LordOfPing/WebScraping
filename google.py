@@ -1,24 +1,29 @@
 from requests_html import HTMLSession
 
+def google(titre, session):
+    chaine = (titre.strip()).replace(" ","+")
 
-# Ouverture d'une session 
-session = HTMLSession()
+    # Url de base pour une recherche Google
+    url = "https://www.google.com/search?q="
 
-# Le film à rechercher
-chaine = "la ligne verte"
+    # Création de la requette
+    url += chaine +"+allocine"
 
-# Remplacement des espace par des +
-chaine = (chaine.strip()).replace(" ","+")
+    # Génération de la page
+    r = session.get(url)
 
-# Url de base pour une recherche Google
-url = "https://www.google.com/search?q="
+    # Création d'un tableau contenant l'url du film sur allociné
+    fiche = r.html.xpath("//div[@class = 'g'][1]//div[@class = 'r'][1]/a/@href")
+    return(fiche)
 
-# Création de la requette
-url += chaine +"+allocine"
+if __name__ == "__main__":
 
-# Génération de la page
-r = session.get(url)
 
-# Création d'un tableau contenant l'url du film sur allociné
-fiche = r.html.xpath("//div[@class = 'g'][1]//div[@class = 'r'][1]/a/@href")
-print(fiche)
+    # Ouverture d'une session 
+    session = HTMLSession()
+
+    # Le film à rechercher
+    titre = "la ligne verte"
+
+    print(google(titre,session))
+

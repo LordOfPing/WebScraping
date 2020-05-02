@@ -2,11 +2,6 @@ from requests_html import HTMLSession
 import re
 import json
 
-# Ouverture d'une session 
-session = HTMLSession()
-
-# Url à Scraper
-r = session.get('http://www.allocine.fr/film/fichefilm_gen_cfilm=39187.html')
 
 
 def distrib_and_date(sessionget):
@@ -24,14 +19,29 @@ def distrib_and_date(sessionget):
     # Sélection du Json uniquement
     regex = re.findall(r"\{.*\}",regex[0])
     # Conversion en Json
-    data = json.loads(regex[0],strict=False)
 
-    # Création d'un dictionnaire avec les information voulu contenu dans data
-    dico = {"movie_distributors": data.get("targeting").get("movie_distributors"),"production_year":(data.get("targeting")).get("production_year")}
+
+    try:
+        # Conversion en Json
+        data = json.loads(regex[0],strict=False)
+
+        # Création d'un dictionnaire avec les information voulu contenu dans data
+        dico = {"movie_distributors": data.get("targeting").get("movie_distributors"),"production_year":(data.get("targeting")).get("production_year")}
+
+    except:
+        # Si erreur remplissage avec des placehoder
+        dico = {"movie_distributors": "A faire","production_year":"A faire"}
+
 
     return(dico)
 
 if __name__ == "__main__":
+
+    # Ouverture d'une session 
+    session = HTMLSession()
+
+    # Url à Scraper
+    r = session.get('http://www.allocine.fr/film/fichefilm_gen_cfilm=20357.html')
     
     dic = distrib_and_date(r)
     print(dic)
