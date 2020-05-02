@@ -26,4 +26,3 @@ if __name__ == "__main__":
     titre = "la ligne verte"
 
     print(google(titre,session))
-
