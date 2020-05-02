@@ -1,0 +1,53 @@
+{
+    "@context": "https://schema.org",
+    "@type": "Movie",
+    "name": "La Liste de Schindler",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://fr.web.img6.acsta.net/pictures/19/03/14/10/37/5927961.jpg"
+    },
+    "duration": "PT03H15M00S",
+    "genre": ["Historique", "Guerre"],
+    "description": "Evocation des années de guerre d'Oskar Schindler, fils d'industriel d'origine autrichienne rentré à Cracovie en 1939 avec les troupes allemandes. Il va, tout au long de la guerre, protéger des juifs en les faisant travailler dans sa fabrique et en 1944 sauver huit cents hommes et trois cents femmes du camp d'extermination de Auschwitz-Birkenau.",
+    "director": {
+        "@type": "Person",
+        "url": "/personne/fichepersonne_gen_cpersonne=471.html",
+        "name": "Steven Spielberg"
+    },
+    "actor": [
+        { "@type": "Person", "url": "/personne/fichepersonne_gen_cpersonne=5568.html", "name": "Liam Neeson" },
+        { "@type": "Person", "url": "/personne/fichepersonne_gen_cpersonne=6556.html", "name": "Ben Kingsley" },
+        { "@type": "Person", "url": "/personne/fichepersonne_gen_cpersonne=15280.html", "name": "Ralph Fiennes" },
+        { "@type": "Person", "url": "/personne/fichepersonne_gen_cpersonne=15211.html", "name": "Caroline Goodall" }
+    ],
+    "creator": [
+        { "@type": "Person", "name": "Steven Zaillian" },
+        { "@type": "Person", "name": "Thomas Keneally" }
+    ],
+    "musicBy": {
+        "@type": "Person",
+        "name": "John Williams"
+    },
+    "trailer": {
+        "@type": "VideoObject",
+        "name": "La Liste de Schindler Bande-annonce VO",
+        "description": "La Liste de Schindler Bande-annonce VO",
+        "thumbnailUrl": "http://fr.web.img6.acsta.net/videothumbnails/15/01/28/09/49/256607.jpg",
+        "thumbnail": {
+            "@type": "ImageObject",
+            "contentUrl": "http://fr.web.img6.acsta.net/videothumbnails/15/01/28/09/49/256607.jpg"
+        },
+        "uploadDate": "2008-02-19",
+        "duration": "PT00H02M30S",
+        "embedUrl": "https://player.allocine.fr/18802634.html",
+        "url": "http://www.allocine.fr/video/player_gen_cmedia=18802634&cfilm=9393.html"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4,5",
+        "ratingCount": "51301",
+        "reviewCount": "1820",
+        "bestRating": "5",
+        "worstRating": "0,5"
+    }
+}
